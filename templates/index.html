@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<h1 style="text-align: center;">House Price Estimation</h4>
+  <div class="container">
+    <form class = "form-inline" action="{{ url_for('predict')}}"method="post">
+		<div class="form-group">
+			<label for ="fname"><h4>How much area you want (in Sq.Ft)?</h4></label>
+			<input type="text" name="area" placeholder="" required="required" />
+		</div>
+		</br>
+        <div class = "form-group">
+			<label for ="fname"><h4>How many no.of bedrooms that you want?</h4></label>
+			<input type="text" name="bedrooms" placeholder="" required="required" />
+		</div>
+        </br>
+		<div class = "form-group">
+			<label for="fname"><h4>How many no.of stories that you want?</h4></label>
+			<input type="text" name="stories" placeholder="" required="required" />
+		</div>
+		</br>
+		<div class = "form-group">
+			<label for="fname"><h4>Do you need it beside MainRoad?</h4></label>
+            <select name="mainroad" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+			</select>
+		</div>
+		</br>
+		<div class = "form-group">
+			<label for="fname"><h4>Do you need the GuestRoom as well?</h4></label>
+            <select name="guestroom" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+            </select>
+        </div>
+		</br>
+		<div class = "form-group">
+			<label for="fname"><h4>Do you need basement?</h4></label>
+            <select name="basement" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+            </select>
+		</div>
+		</br>
+		<div class="form-group">
+			<label for="fname"><h4>Do you require Hotwater facility?</h4></label>
+            <select name="hotwaterheating" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+            </select>
+		</div>
+		</br>		
+		<div class="form-group">
+			<label for="fname"><h4>Do you require AC facility?</h4></label>
+            <select name="airconditioning" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+            </select>
+		</div>
+		</br>
+		<div class = "form-group">
+			<label for="fname"><h4>How many parking slots you require?</h4></label>
+			<input type="text" name="parking" placeholder="" required="required" />
+		</div>	
+		</br>		
+		<div class="form-group">
+			<label for="fname"><h4>Do you specific requirements on House Facing (like East facing)?</label>
+            <select name="prefarea" class="selectpicker form-control">
+               <option value="1">YES</option>
+               <option value="0">NO</option>
+            </select>		
+		</div>
+		</br>
+		<div class="form-group">
+			<label for="fname"><h4>Select Furnished Status.</h4></label>
+            <select name="furnishingstatus" class="selectpicker form-control">
+               <option value="2">Fully Furnished</option>
+               <option value="1">Semi Furnished</option>
+			   <option value="0">UnFurnished</option>
+            </select>		
+		</div>
+		<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+  
+   <br>
+   <br>
+   <h1>{{ prediction_text }}</h1>
+
+ </div>
+
+
+</body>
+</html>
